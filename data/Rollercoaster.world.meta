@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<asset version="2.15.1.0">
+	<guid>0000000d000000ae000000da0000000e00000eca</guid>
+	<type>world</type>
+	<hash>8b101649</hash>
+	<runtimes>
+		<runtime id="0000000d000000ae000000da0000000e00000eca" name="Rollercoaster.world" link="0"/>
+	</runtimes>
+	<parameters>
+		<parameter type="string" name="render_settings_path">guid://3eaf348f5c3c98a2f8253f99e39b2424233a2133</parameter>
+		<parameter type="string" name="sound_settings_path"/>
+		<parameter type="string" name="physics_settings_path"/>
+		<parameter type="string" name="script_name"/>
+		<parameter type="xml" name="viewports"><viewport_list>
+	<1>
+		<flashlight>
+			<enabled>0</enabled>
+			<color>1 1 1 1</color>
+			<intensity>1</intensity>
+			<attenuation>1</attenuation>
+			<radius>300</radius>
+			<fov>160</fov>
+		</flashlight>
+		<speed_presets>
+			<speed_0>5</speed_0>
+			<speed_1>50</speed_1>
+			<speed_2>500</speed_2>
+			<current_preset>2</current_preset>
+		</speed_presets>
+		<scene_camera>
+			<transform>0.67275136709213257 0.73986876010894775 -0.00016390909149777144 0 -0.080207549035549164 0.073151744902133942 0.9940904974937439 0 0.73550844192504883 -0.6687624454498291 0.10855599492788315 0 1648.789794921875 -1504.95263671875 554.3427734375 1</transform>
+			<fov_mode>0</fov_mode>
+			<fov>60</fov>
+			<focal_length>30</focal_length>
+			<film_gate>35</film_gate>
+			<znear>0.100000001</znear>
+			<zfar>100000</zfar>
+			<viewport_mask>-1</viewport_mask>
+			<reflection_mask>-1</reflection_mask>
+			<source_mask>-1</source_mask>
+			<reverb_mask>-1</reverb_mask>
+			<ortho_enabled>0</ortho_enabled>
+			<ortho_height>16</ortho_height>
+			<projection>1.7320509 0 0 0 0 1.7320509 0 0 0 0 -1.00000203 -1 0 0 -0.200000197 0</projection>
+		</scene_camera>
+		<render_debug>
+			<mode>-1</mode>
+			<ligth_meter_max_intensity>500</ligth_meter_max_intensity>
+		</render_debug>
+		<selected_camera_id>-1</selected_camera_id>
+	</1>
+</viewport_list>
+</parameter>
+	</parameters>
+</asset>

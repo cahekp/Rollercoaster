@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<asset version="2.15.1.0">
+	<guid>85b3ec45c97270e01617eebf356d2d12d9b16949</guid>
+	<type>world</type>
+	<hash>fd63f3f1</hash>
+	<runtimes>
+		<runtime id="85b3ec45c97270e01617eebf356d2d12d9b16949" name="SplineSamples.world" link="0"/>
+	</runtimes>
+	<parameters>
+		<parameter type="string" name="render_settings_path"/>
+		<parameter type="string" name="sound_settings_path"/>
+		<parameter type="string" name="physics_settings_path"/>
+		<parameter type="string" name="script_name"/>
+		<parameter type="xml" name="viewports"><viewport_list>
+	<1>
+		<flashlight>
+			<enabled>0</enabled>
+			<color>1 1 1 1</color>
+			<intensity>1</intensity>
+			<attenuation>1</attenuation>
+			<radius>300</radius>
+			<fov>160</fov>
+		</flashlight>
+		<speed_presets>
+			<speed_0>5</speed_0>
+			<speed_1>50</speed_1>
+			<speed_2>500</speed_2>
+			<current_preset>0</current_preset>
+		</speed_presets>
+		<scene_camera>
+			<transform>0.86251991987228394 -0.50602298974990845 3.0100338790362002e-06 0 0.43645918369293213 0.74395102262496948 0.50600415468215942 0 -0.25605189800262451 -0.43643733859062195 0.86253100633621216 0 -0.57322210073471069 -2.2615480422973633 9.5911798477172852 1</transform>
+			<fov_mode>0</fov_mode>
+			<fov>60</fov>
+			<focal_length>30</focal_length>
+			<film_gate>35</film_gate>
+			<znear>0.100000001</znear>
+			<zfar>100000</zfar>
+			<viewport_mask>-1</viewport_mask>
+			<reflection_mask>-1</reflection_mask>
+			<source_mask>-1</source_mask>
+			<reverb_mask>-1</reverb_mask>
+			<ortho_enabled>0</ortho_enabled>
+			<ortho_height>16</ortho_height>
+			<projection>1.7320509 0 0 0 0 1.7320509 0 0 0 0 -1.00000203 -1 0 0 -0.200000197 0</projection>
+		</scene_camera>
+		<render_debug>
+			<mode>-1</mode>
+			<ligth_meter_max_intensity>500</ligth_meter_max_intensity>
+		</render_debug>
+		<selected_camera_id>-1</selected_camera_id>
+	</1>
+</viewport_list>
+</parameter>
+	</parameters>
+</asset>
