@@ -4,19 +4,10 @@
     <Natvis Include="../utils/natvis/unigine_stl.natvis" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AppEditorLogic.cpp" />
-    <ClCompile Include="AppSystemLogic.cpp" />
     <ClCompile Include="AppWorldLogic.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AppEditorLogic.h" />
-    <ClInclude Include="AppSystemLogic.h" />
     <ClInclude Include="AppWorldLogic.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Filter Include="plugin">
-      <UniqueIdentifier>{dbe2cb39-56ec-4ac4-a579-b37c98b39cbd}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
 </Project>
