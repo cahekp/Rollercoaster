@@ -692,7 +692,7 @@
 			<is_main>1</is_main>
 			<is_listener>1</is_listener>
 			<controlled>1</controlled>
-			<transform>1 -2.919533e-06 0 0.0 2.8803299e-06 0.98657215 0.16332649 0.0 -4.768371e-07 -0.16332649 0.98657215 0.0 5.3064861 2.1092403 10.119806 1.0</transform>
+			<transform>1 -2.9195417e-06 0 0.0 2.8803386e-06 0.98657215 0.16332601 0.0 -4.768371e-07 -0.16332601 0.98657215 0.0 5.3064861 2.1092403 10.119806 1.0</transform>
 		</node>
 		<node type="NodeDummy" id="2124402456" name="bezier_quad">
 			<transform>0.99999988 0 0 0.0 0 0.99999988 0 0.0 0 0 0.99999994 0.0 -1.386472 5.3441968 9.5367432e-07 1.0</transform>
@@ -1023,7 +1023,41 @@
 		vec3 d = -p0 + p1 * 3.0f - p2 * 3.0f + p3;
 		return (a + b*t + c*t*t + d*t*t*t) * 0.5f;
 	}
-
+	
+	// return first derivative
+	vec3 catmull_rom_velocity(vec3 p0, vec3 p1, vec3 p2, vec3 p3, float t)
+	{
+		// based on: https://bit-hack.net/2021/04/11/catmull-rom-splines/
+		vec3 c2 = -p0 * 0.5f +  /*******/    p2 * 0.5f   /********/;
+		vec3 c3 =  p0 * 1.0f + -p1 * 2.5f +  p2 * 2.0f + -p3 * 0.5f;
+		vec3 c4 = -p0 * 0.5f +  p1 * 1.5f + -p2 * 1.5f +  p3 * 0.5f;
+		return (c4 * 3.f * t*t) + (c3 * 2.f * t) + (c2);
+	}
+	
+	// return second derivative
+	vec3 catmull_rom_acceleration(vec3 p0, vec3 p1, vec3 p2, vec3 p3, float t)
+	{
+		vec3 c3 =  p0 * 1.0f + -p1 * 2.5f +  p2 * 2.0f + -p3 * 0.5f;
+		vec3 c4 = -p0 * 0.5f +  p1 * 1.5f + -p2 * 1.5f +  p3 * 0.5f;
+		return (c4 * 6.f * t) + (c3 * 2.f);
+	}
+	
+	// draw Frenet Frame
+	void draw_catmull_rom_frenet(vec3 p0, vec3 p1, vec3 p2, vec3 p3, float t)
+	{
+		vec3 pos = catmull_rom(p0, p1, p2, p3, t);
+		vec3 vel = catmull_rom_velocity(p0, p1, p2, p3, t);
+		vec3 accel = catmull_rom_acceleration(p0, p1, p2, p3, t);
+		
+		vec3 tangent = normalize(vel);
+		vec3 binormal = normalize(cross(vel, accel));
+		vec3 normal = normalize(cross(binormal, tangent));
+		
+		engine.visualizer.renderLine3D(pos, pos + tangent * 0.1f, vec4(0,1,0,1)); // forward
+		engine.visualizer.renderLine3D(pos, pos + binormal * 0.1f, vec4(1,0,0,1)); // right
+		engine.visualizer.renderLine3D(pos, pos + normal * 0.1f, vec4(0,0,1,1)); // up
+	}
+	
 	Node root = getNode().getParent();
 	if (root == NULL)
 		return;
@@ -1062,12 +1096,17 @@
 		vec3 p2 = points.getChild(j + 2).getWorldPosition();
 		vec3 p3 = points.getChild(j + 3).getWorldPosition();
 		
+		// draw spline
 		for (int i = 1; i &lt; quality; i++)
 		{
 			vec3 start = catmull_rom(p0, p1, p2, p3, float(i - 1) / (quality - 1));
 			vec3 end = catmull_rom(p0, p1, p2, p3, float(i) / (quality - 1));
 			engine.visualizer.renderLine3D(start, end, vec4(1,1,1,1));
 		}
+		
+		// calculate and draw Frenet Frame
+		for (int i = 0; i &lt; quality; i += 3)
+			draw_catmull_rom_frenet(p0, p1, p2, p3, float(i) / (quality - 1));
 	}
 }</expression>
 				<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 0 0 0 1.0</transform>
@@ -1115,6 +1154,39 @@
 		vec3 d = -p0 + p1 * 3.0f - p2 * 3.0f + p3;
 		return (a + b*t + c*t*t + d*t*t*t) * 0.5f;
 	}
+	
+	// return first derivative
+	vec3 catmull_rom_velocity(vec3 p0, vec3 p1, vec3 p2, vec3 p3, float t)
+	{
+		// based on: https://bit-hack.net/2021/04/11/catmull-rom-splines/
+		vec3 c2 = -p0 * 0.5f +  /*******/    p2 * 0.5f   /********/;
+		vec3 c3 =  p0 * 1.0f + -p1 * 2.5f +  p2 * 2.0f + -p3 * 0.5f;
+		vec3 c4 = -p0 * 0.5f +  p1 * 1.5f + -p2 * 1.5f +  p3 * 0.5f;
+		return (c4 * 3.f * t*t) + (c3 * 2.f * t) + (c2);
+	}
+	
+	// return second derivative
+	vec3 catmull_rom_acceleration(vec3 p0, vec3 p1, vec3 p2, vec3 p3, float t)
+	{
+		vec3 c3 =  p0 * 1.0f + -p1 * 2.5f +  p2 * 2.0f + -p3 * 0.5f;
+		vec3 c4 = -p0 * 0.5f +  p1 * 1.5f + -p2 * 1.5f +  p3 * 0.5f;
+		return (c4 * 6.f * t) + (c3 * 2.f);
+	}
+	
+	// draw Rotation Minimizing Frame
+	void draw_catmull_rom_rmf(vec3 prev_binormal, vec3 p0, vec3 p1, vec3 p2, vec3 p3, float t)
+	{
+		vec3 pos = catmull_rom(p0, p1, p2, p3, t);
+		vec3 vel = catmull_rom_velocity(p0, p1, p2, p3, t);
+		
+		vec3 tangent = normalize(vel);
+		vec3 normal = normalize(cross(prev_binormal, tangent));
+		vec3 binormal = normalize(cross(tangent, normal));
+		
+		engine.visualizer.renderLine3D(pos, pos + tangent * 0.1f, vec4(0,1,0,1)); // forward
+		engine.visualizer.renderLine3D(pos, pos + binormal * 0.1f, vec4(1,0,0,1)); // right
+		engine.visualizer.renderLine3D(pos, pos + normal * 0.1f, vec4(0,0,1,1)); // up
+	}
 
 	Node root = getNode().getParent();
 	if (root == NULL)
@@ -1145,6 +1217,15 @@
 	engine.visualizer.renderLine3D(start_point, start_tangent, vec4(1,1,0,0.5f));
 	engine.visualizer.renderLine3D(end_point, end_tangent, vec4(1,1,0,0.5f));
 	
+	// init for RMF
+	vec3 p0_ = points.getChild(0).getWorldPosition();
+	vec3 p1_ = points.getChild(1).getWorldPosition();
+	vec3 p2_ = points.getChild(2).getWorldPosition();
+	vec3 p3_ = points.getChild(3).getWorldPosition();
+	vec3 vel = catmull_rom_velocity(p0_, p1_, p2_, p3_, 0);
+	vec3 accel = catmull_rom_acceleration(p0_, p1_, p2_, p3_, 0);
+	vec3 prev_binormal = normalize(cross(vel, accel));
+	
 	// draw catmull-rom spline
 	int quality = 30; // count of points
 	for (int j = 0; j &lt; points.getNumChildren() - 3; j++)
@@ -1160,6 +1241,10 @@
 			vec3 end = catmull_rom(p0, p1, p2, p3, float(i) / (quality - 1));
 			engine.visualizer.renderLine3D(start, end, vec4(1,1,1,1));
 		}
+		
+		// calculate and draw RMF
+		for (int i = 0; i &lt; quality; i += 3)
+			draw_catmull_rom_rmf(prev_binormal, p0, p1, p2, p3, float(i) / (quality - 1));
 	}
 }</expression>
 				<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 0 0 0 1.0</transform>
