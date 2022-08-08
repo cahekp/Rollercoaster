@@ -876,10 +876,10 @@
 	vec3 p3 = p3_node.getWorldPosition();
 
 	engine.visualizer.setEnabled(1);
-	engine.visualizer.renderSolidSphere(0.1f, translate(p0), vec4(0,1,0,1));
-	engine.visualizer.renderSolidSphere(0.1f, translate(p1), vec4(1,0,0,1));
-	engine.visualizer.renderSolidSphere(0.1f, translate(p2), vec4(0,0,1,1));
-	engine.visualizer.renderSolidSphere(0.1f, translate(p3), vec4(0,1,1,1));
+	engine.visualizer.renderSolidSphere(0.1f, translate(p0), vec4(1,0,0,1));
+	engine.visualizer.renderSolidSphere(0.1f, translate(p1), vec4(0,1,0,1));
+	engine.visualizer.renderSolidSphere(0.1f, translate(p2), vec4(0,1,1,1));
+	engine.visualizer.renderSolidSphere(0.1f, translate(p3), vec4(0,0,1,1));
 	
 	// draw tangents
 	engine.visualizer.renderLine3D(p0, p1, vec4(1,1,0,0.5f));

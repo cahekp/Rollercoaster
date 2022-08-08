@@ -348,6 +348,7 @@
 	"46bf35e246aebbd9ca57f36452a42773b0b7c636": "editor2/resources/nodes/object_dummy.node",
 	"3d04656efdcfedf535baa6d09fb04bef00fb0882": "shader_d3d11.cache",
 	"5c286fd5f2d87f303fca88cf88715fe2b376ddd9": "unigine.cache",
+	"61e978ec0a841f5b7985ccfebcb590453fdfc4e0": "shader_d3d11_debug.cache",
 	"b93321c34f865c46d1db86ed897c3b68849167a7": "editor.cache",
 	"ac0479daa77fff71afbef21ce25466cb65800dae": "core/locale/unigine.locale",
 	"f004d4c02032411f40f59bf29fac4aa9486f13f4": "core/import/xatlas/README",

@@ -6,8 +6,10 @@
   <ItemGroup>
     <ClCompile Include="AppWorldLogic.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Math.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AppWorldLogic.h" />
+    <ClInclude Include="Math.h" />
   </ItemGroup>
 </Project>

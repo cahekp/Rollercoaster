@@ -12,6 +12,7 @@
 /data/root_mount.umount
 /data/scripts.ung
 /data/shader_d3d11.cache
+/data/shader_d3d11_debug.cache
 /data/unigine.cache
 /lib
 /utils
