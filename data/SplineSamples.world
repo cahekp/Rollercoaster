@@ -692,10 +692,10 @@
 			<is_main>1</is_main>
 			<is_listener>1</is_listener>
 			<controlled>1</controlled>
-			<transform>0.99997562 0.0069803908 -0 0.0 -0.0068426752 0.9802472 0.1976577 0.0 0.001379728 -0.19765289 0.9802711 0.0 3.498503 1.4986587 9.5438671 1.0</transform>
+			<transform>1 -2.919533e-06 0 0.0 2.8803299e-06 0.98657215 0.16332649 0.0 -4.768371e-07 -0.16332649 0.98657215 0.0 5.3064861 2.1092403 10.119806 1.0</transform>
 		</node>
 		<node type="NodeDummy" id="2124402456" name="bezier_quad">
-			<transform>0.99999988 0 0 0.0 0 0.99999988 0 0.0 0 0 0.99999994 0.0 -0.21310997 5.3441968 9.5367432e-07 1.0</transform>
+			<transform>0.99999988 0 0 0.0 0 0.99999988 0 0.0 0 0 0.99999994 0.0 -1.386472 5.3441968 9.5367432e-07 1.0</transform>
 			<node type="WorldExpression" id="325055239" name="logic">
 				<expression>{
 	vec3 bezier_quad(vec3 p0, vec3 p1, vec3 p2, float t)
@@ -765,7 +765,7 @@
 			</node>
 		</node>
 		<node type="NodeDummy" id="1109139422" name="bezier_cubic">
-			<transform>0.99999988 0 0 0.0 0 0.99999988 0 0.0 0 0 0.99999994 0.0 6.3483691 5.5138259 0 1.0</transform>
+			<transform>0.99999988 0 0 0.0 0 0.99999988 0 0.0 0 0 0.99999994 0.0 5.7404189 5.3892341 0 1.0</transform>
 			<node type="WorldExpression" id="1760787028" name="logic">
 				<expression>{
 	vec3 bezier_cubic(vec3 p0, vec3 p1, vec3 p2, vec3 p3, float t)
@@ -844,7 +844,7 @@
 			</node>
 		</node>
 		<node type="NodeDummy" id="489399849" name="catmull_rom">
-			<transform>0.99999988 0 0 0.0 0 0.99999988 0 0.0 0 0 0.99999994 0.0 -0.51133776 0.6540463 0 1.0</transform>
+			<transform>0.99999988 0 0 0.0 0 0.99999988 0 0.0 0 0 0.99999994 0.0 12.320678 4.8280845 9.5367432e-07 1.0</transform>
 			<node type="WorldExpression" id="1435834040" name="logic">
 				<expression>{
 	vec3 catmull_rom(vec3 p0, vec3 p1, vec3 p2, vec3 p3, float t)
@@ -905,10 +905,10 @@
 					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 -1.1914907 -0.12792468 0 1.0</transform>
 				</node>
 				<node type="NodeDummy" id="1756345334" name="p3">
-					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 0.44066334 -0.002455771 0 1.0</transform>
+					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 0.58634186 0.84085512 0 1.0</transform>
 				</node>
 				<node type="NodeDummy" id="567824361" name="p4">
-					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 0.69701195 0.92583883 0 1.0</transform>
+					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 -0.03592968 3.621932 0 1.0</transform>
 				</node>
 			</node>
 			<node type="ObjectText" id="1030973555" name="text">
@@ -921,7 +921,7 @@
 			</node>
 		</node>
 		<node type="NodeDummy" id="1911716779" name="catmull_rom_spline">
-			<transform>0.99999988 0 0 0.0 0 0.99999988 0 0.0 0 0 0.99999994 0.0 5.8145938 0.62641001 0 1.0</transform>
+			<transform>0.99999988 0 0 0.0 0 0.99999988 0 0.0 0 0 0.99999994 0.0 -2.8117347 0.62641001 0 1.0</transform>
 			<node type="WorldExpression" id="914118943" name="logic">
 				<expression>{
 	vec3 catmull_rom(vec3 p0, vec3 p1, vec3 p2, vec3 p3, float t)
@@ -1009,6 +1009,190 @@
 				<text_wrap_width>0</text_wrap_width>
 				<surface name="text" physics_friction="1" physics_restitution="1" material="196c349704185e581025cee22b1fe0d75cb85e73"/>
 				<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 -0.55765247 -0.66581285 0 1.0</transform>
+			</node>
+		</node>
+		<node type="NodeDummy" id="262339736" name="catmull_rom_spline_frenet">
+			<transform>0.99999988 0 0 0.0 0 0.99999988 0 0.0 0 0 0.99999994 0.0 4.5627513 0.50369596 2.8610229e-06 1.0</transform>
+			<node type="WorldExpression" id="588327464" name="logic">
+				<expression>{
+	vec3 catmull_rom(vec3 p0, vec3 p1, vec3 p2, vec3 p3, float t)
+	{
+		vec3 a = p1 * 2.0f;
+		vec3 b = p2 - p0;
+		vec3 c = p0 * 2.0f - p1 * 5.0f + p2 * 4.0f - p3;
+		vec3 d = -p0 + p1 * 3.0f - p2 * 3.0f + p3;
+		return (a + b*t + c*t*t + d*t*t*t) * 0.5f;
+	}
+
+	Node root = getNode().getParent();
+	if (root == NULL)
+		return;
+	
+	Node points = root.findNode(&quot;points&quot;);
+	if (points == NULL || points.getNumChildren() &lt; 4)
+		return;
+
+	int points_count = points.getNumChildren();
+	
+	// draw points
+	vec3 start_tangent = points.getChild(0).getWorldPosition();
+	vec3 start_point = points.getChild(1).getWorldPosition();
+	vec3 end_point = points.getChild(points_count - 2).getWorldPosition();
+	vec3 end_tangent = points.getChild(points_count - 1).getWorldPosition();
+	
+	engine.visualizer.setEnabled(1);
+	engine.visualizer.renderSolidSphere(0.1f, translate(start_tangent), vec4(0,1,0,1));
+	engine.visualizer.renderSolidSphere(0.1f, translate(end_tangent), vec4(0,1,1,1));
+	for (int i = 1; i &lt; points_count - 1; i++)
+	{
+		vec3 color = lerp(vec4(1,0,0,1), vec4(0,0,1,1), float(i - 1) / (points_count - 3));
+		engine.visualizer.renderSolidSphere(0.1f, translate(points.getChild(i).getWorldPosition()), color);
+	}
+	
+	// draw tangents
+	engine.visualizer.renderLine3D(start_point, start_tangent, vec4(1,1,0,0.5f));
+	engine.visualizer.renderLine3D(end_point, end_tangent, vec4(1,1,0,0.5f));
+	
+	// draw catmull-rom spline
+	int quality = 30; // count of points
+	for (int j = 0; j &lt; points.getNumChildren() - 3; j++)
+	{
+		vec3 p0 = points.getChild(j + 0).getWorldPosition();
+		vec3 p1 = points.getChild(j + 1).getWorldPosition();
+		vec3 p2 = points.getChild(j + 2).getWorldPosition();
+		vec3 p3 = points.getChild(j + 3).getWorldPosition();
+		
+		for (int i = 1; i &lt; quality; i++)
+		{
+			vec3 start = catmull_rom(p0, p1, p2, p3, float(i - 1) / (quality - 1));
+			vec3 end = catmull_rom(p0, p1, p2, p3, float(i) / (quality - 1));
+			engine.visualizer.renderLine3D(start, end, vec4(1,1,1,1));
+		}
+	}
+}</expression>
+				<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 0 0 0 1.0</transform>
+			</node>
+			<node type="NodeDummy" id="2030433474" name="points">
+				<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 0 0 0 1.0</transform>
+				<node type="NodeDummy" id="671039248" name="p1">
+					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 -1.530153 0.79827201 0 1.0</transform>
+				</node>
+				<node type="NodeDummy" id="532647085" name="p2">
+					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 -1.1914907 -0.12792468 0 1.0</transform>
+				</node>
+				<node type="NodeDummy" id="1741710113" name="p3">
+					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 0.85493088 -0.054475307 0 1.0</transform>
+				</node>
+				<node type="NodeDummy" id="930923416" name="p4">
+					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 0.076648712 0.91547811 0 1.0</transform>
+				</node>
+				<node type="NodeDummy" id="1568627546" name="p5">
+					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 2.1750593 1.1728252 0 1.0</transform>
+				</node>
+				<node type="NodeDummy" id="639369980" name="p6">
+					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 2.6111593 0.12383139 0 1.0</transform>
+				</node>
+			</node>
+			<node type="ObjectText" id="525957778" name="text">
+				<font_name>core/gui/font.ttf</font_name>
+				<text>Catmull-Rom spline
+(Frenet Frame)</text>
+				<font_size>100</font_size>
+				<text_wrap_width>0</text_wrap_width>
+				<surface name="text" physics_friction="1" physics_restitution="1" material="196c349704185e581025cee22b1fe0d75cb85e73"/>
+				<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 -0.55765247 -0.66581285 0 1.0</transform>
+			</node>
+		</node>
+		<node type="NodeDummy" id="1929415837" name="catmull_rom_spline_rmf">
+			<transform>0.99999988 0 0 0.0 0 0.99999988 0 0.0 0 0 0.99999994 0.0 11.231483 0.50369596 2.8610229e-06 1.0</transform>
+			<node type="WorldExpression" id="114995116" name="logic">
+				<expression>{
+	vec3 catmull_rom(vec3 p0, vec3 p1, vec3 p2, vec3 p3, float t)
+	{
+		vec3 a = p1 * 2.0f;
+		vec3 b = p2 - p0;
+		vec3 c = p0 * 2.0f - p1 * 5.0f + p2 * 4.0f - p3;
+		vec3 d = -p0 + p1 * 3.0f - p2 * 3.0f + p3;
+		return (a + b*t + c*t*t + d*t*t*t) * 0.5f;
+	}
+
+	Node root = getNode().getParent();
+	if (root == NULL)
+		return;
+	
+	Node points = root.findNode(&quot;points&quot;);
+	if (points == NULL || points.getNumChildren() &lt; 4)
+		return;
+
+	int points_count = points.getNumChildren();
+	
+	// draw points
+	vec3 start_tangent = points.getChild(0).getWorldPosition();
+	vec3 start_point = points.getChild(1).getWorldPosition();
+	vec3 end_point = points.getChild(points_count - 2).getWorldPosition();
+	vec3 end_tangent = points.getChild(points_count - 1).getWorldPosition();
+	
+	engine.visualizer.setEnabled(1);
+	engine.visualizer.renderSolidSphere(0.1f, translate(start_tangent), vec4(0,1,0,1));
+	engine.visualizer.renderSolidSphere(0.1f, translate(end_tangent), vec4(0,1,1,1));
+	for (int i = 1; i &lt; points_count - 1; i++)
+	{
+		vec3 color = lerp(vec4(1,0,0,1), vec4(0,0,1,1), float(i - 1) / (points_count - 3));
+		engine.visualizer.renderSolidSphere(0.1f, translate(points.getChild(i).getWorldPosition()), color);
+	}
+	
+	// draw tangents
+	engine.visualizer.renderLine3D(start_point, start_tangent, vec4(1,1,0,0.5f));
+	engine.visualizer.renderLine3D(end_point, end_tangent, vec4(1,1,0,0.5f));
+	
+	// draw catmull-rom spline
+	int quality = 30; // count of points
+	for (int j = 0; j &lt; points.getNumChildren() - 3; j++)
+	{
+		vec3 p0 = points.getChild(j + 0).getWorldPosition();
+		vec3 p1 = points.getChild(j + 1).getWorldPosition();
+		vec3 p2 = points.getChild(j + 2).getWorldPosition();
+		vec3 p3 = points.getChild(j + 3).getWorldPosition();
+		
+		for (int i = 1; i &lt; quality; i++)
+		{
+			vec3 start = catmull_rom(p0, p1, p2, p3, float(i - 1) / (quality - 1));
+			vec3 end = catmull_rom(p0, p1, p2, p3, float(i) / (quality - 1));
+			engine.visualizer.renderLine3D(start, end, vec4(1,1,1,1));
+		}
+	}
+}</expression>
+				<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 0 0 0 1.0</transform>
+			</node>
+			<node type="NodeDummy" id="1594786372" name="points">
+				<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 0 0 0 1.0</transform>
+				<node type="NodeDummy" id="275413170" name="p1">
+					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 -1.530153 0.79827201 0 1.0</transform>
+				</node>
+				<node type="NodeDummy" id="1196096903" name="p2">
+					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 -1.1914907 -0.12792468 0 1.0</transform>
+				</node>
+				<node type="NodeDummy" id="2117862806" name="p3">
+					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 0.85493088 -0.054475307 0 1.0</transform>
+				</node>
+				<node type="NodeDummy" id="454673663" name="p4">
+					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 0.076648712 0.91547811 0 1.0</transform>
+				</node>
+				<node type="NodeDummy" id="500960470" name="p5">
+					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 2.1750593 1.1728252 0 1.0</transform>
+				</node>
+				<node type="NodeDummy" id="778694310" name="p6">
+					<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 2.6111593 0.12383139 0 1.0</transform>
+				</node>
+			</node>
+			<node type="ObjectText" id="451600975" name="text">
+				<font_name>core/gui/font.ttf</font_name>
+				<text>Catmull-Rom spline
+(Rotation Minimizing Frame)</text>
+				<font_size>100</font_size>
+				<text_wrap_width>0</text_wrap_width>
+				<surface name="text" physics_friction="1" physics_restitution="1" material="196c349704185e581025cee22b1fe0d75cb85e73"/>
+				<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 -1.3695202 -0.66581285 0 1.0</transform>
 			</node>
 		</node>
 	</editor>
