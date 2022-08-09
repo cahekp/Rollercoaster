@@ -64,7 +64,7 @@ Mat4 catmullRomUniformFrenet(const Vec3 &p0, const Vec3 &p1, const Vec3 &p2, con
 	return ret;
 }
 
-Mat4 catmullRomUniformRMF(const Unigine::Math::Vec3 &prev_binormal, const Vec3 &p0, const Vec3 &p1, const Vec3 &p2, const Vec3 &p3, float t)
+Mat4 catmullRomUniformRMF(const Vec3 &prev_binormal, const Vec3 &p0, const Vec3 &p1, const Vec3 &p2, const Vec3 &p3, float t)
 {
 	Vec3 pos = catmullRomUniform(p0, p1, p2, p3, t);
 	Vec3 vel = catmullRomUniformTangent(p0, p1, p2, p3, t);
@@ -79,6 +79,19 @@ Mat4 catmullRomUniformRMF(const Unigine::Math::Vec3 &prev_binormal, const Vec3 &
 	ret.setColumn3(2, normal);
 	ret.setColumn3(3, pos);
 	return ret;
+}
+
+float getLengthCatmullRomUniform(const Vec3 &p0, const Vec3 &p1, const Vec3 &p2, const Vec3 &p3, int subdivisions)
+{
+	float len = 0;
+	Vec3 start = catmullRomUniform(p0, p1, p2, p3, 0);
+	for (int i = 1; i < subdivisions; i++)
+	{
+		Vec3 end = catmullRomUniform(p0, p1, p2, p3, float(i) / (subdivisions - 1));
+		len += length(end - start);
+		start = end;
+	}
+	return len;
 }
 
 Vec3 catmullRom(const Vec3 &p0, const Vec3 &p1, const Vec3 &p2, const Vec3 &p3, float t, float alpha)
@@ -198,6 +211,19 @@ Mat4 catmullRomRMF(const Unigine::Math::Vec3 &prev_binormal, const Vec3 &p0, con
 	return ret;
 }
 
+float getLengthCatmullRom(const Vec3 &p0, const Vec3 &p1, const Vec3 &p2, const Vec3 &p3, float alpha, int subdivisions)
+{
+	float len = 0;
+	Vec3 start = catmullRom(p0, p1, p2, p3, 0, alpha);
+	for (int i = 1; i < subdivisions; i++)
+	{
+		Vec3 end = catmullRom(p0, p1, p2, p3, float(i) / (subdivisions - 1), alpha);
+		len += length(end - start);
+		start = end;
+	}
+	return len;
+}
+
 Vec3 hermite(const Vec3 &p0, const Vec3 &p1, const Vec3 &p2, const Vec3 &p3, float t)
 {
 	float t2 = t * t;
@@ -291,7 +317,7 @@ quat squad(const quat &q0, const quat &q1, const quat &q2, const quat &q3, float
 	return slerp(slerp(q1, q2m, t), slerp(a, b, t), 2.0f * t * (1.0f - t)).normalizeValid();
 }
 
-quat squad2(const quat &q0, const quat &q1, const quat &q2, const quat &q3, float t)
+quat squad_v2(const quat &q0, const quat &q1, const quat &q2, const quat &q3, float t)
 {
 	auto get_squad_intermediate = [](const quat &q0, const quat &q1, const quat &q2) -> quat
 	{

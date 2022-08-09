@@ -17,24 +17,51 @@
 
 #include <UnigineLogic.h>
 #include <UnigineStreams.h>
+#include <UnigineNode.h>
+#include <UnigineWidgets.h>
 
 class AppWorldLogic: public Unigine::WorldLogic
 {
-
 public:
-	AppWorldLogic();
-	virtual ~AppWorldLogic();
+	const int quality = 10; // curve subdivisions
 
 	int init() override;
-
 	int update() override;
-	int postUpdate() override;
-	int updatePhysics() override;
-
 	int shutdown() override;
 
-	int save(const Unigine::StreamPtr &stream) override;
-	int restore(const Unigine::StreamPtr &stream) override;
+private:
+	void draw_path() const;
+	void update_time(float speed = 1.0f);
+	Unigine::VectorStack<Unigine::Math::Vec3, 4> get_current_points() const;
+	Unigine::VectorStack<Unigine::Math::quat, 4> get_current_quats() const;
+	void update_position_only();
+	void update_position_frenet();
+	void update_position_rmf();
+	void update_position_rotation();
+	void update_position_squad();
+	void update_final();
+
+	// control points
+	Unigine::Vector<Unigine::Math::Vec3> points_pos;
+	Unigine::Vector<Unigine::Math::quat> points_rot;
+	Unigine::Vector<float> lengths;
+
+	// current position
+	int points_index = 0;
+	float time = 0;
+	Unigine::Math::Vec3 prev_binormal;
+
+	// modes
+	enum class MODE
+	{
+		POSITION_ONLY,		// position
+		POSITION_FRENET,	// position + rotation (based on Frenet Frame)
+		POSITION_RMF,		// position + rotation (based on Rotation Minimizing Frame)
+		POSITION_ROTATION,	// position + rotation (slerp)
+		POSITION_SQUAD,		// position + rotation (SQUAD)
+		FINAL,				// position + rotation (SQUAD) + velocity
+	} mode = MODE::POSITION_ONLY;
+	Unigine::WidgetLabelPtr label;
 };
 
 #endif // __APP_WORLD_LOGIC_H__

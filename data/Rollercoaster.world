@@ -863,13 +863,13 @@
 					<transform>0.99999869 0 0 0.0 0 0.3751227 -0.92697382 0.0 0 0.92697483 0.37512311 0.0 -9.5367395e-06 1117.8273 1096.8381 1.0</transform>
 				</node>
 				<node type="NodeDummy" id="393341334" name="p_10">
-					<transform>0.99999857 0 0 0.0 0 0.58728451 -0.80937868 0.0 0 0.80937988 0.58728534 0.0 -9.5367386e-06 1299.5402 159.70274 1.0</transform>
+					<transform>0.99999845 0 0 0.0 0 0.58728439 -0.80937862 0.0 0 0.80937994 0.58728534 0.0 -9.5367377e-06 1261.2023 290.13913 1.0</transform>
 				</node>
 				<node type="NodeDummy" id="534481010" name="p_11">
-					<transform>0.62291747 -0.53348601 -0.57215643 0.0 0.6504786 0.75952226 2.9802269e-08 0.0 0.434567 -0.37217686 0.82014382 0.0 10.1916 1724.4261 10.000031 1.0</transform>
+					<transform>0.62291735 -0.53348595 -0.57215637 0.0 0.6504786 0.75952226 2.9802269e-08 0.0 0.43456703 -0.37217689 0.82014382 0.0 116.63236 1630.8838 110.94974 1.0</transform>
 				</node>
 				<node type="NodeDummy" id="633019056" name="p_12">
-					<transform>-0.5788188 -0.70909101 -0.40268472 0.0 0.77467632 -0.63235503 1.0430794e-07 0.0 -0.25464067 -0.31195131 0.91533822 0.0 374.00656 1730.0596 10.000008 1.0</transform>
+					<transform>-0.57881868 -0.70909083 -0.40268463 0.0 0.77467597 -0.63235474 1.0430789e-07 0.0 -0.25464064 -0.31195131 0.91533816 0.0 593.1286 1688.4589 9.9999466 1.0</transform>
 				</node>
 				<node type="NodeDummy" id="1321305019" name="p_13">
 					<transform>-0.97072971 -0.24016745 0 0.0 0.24016744 -0.97072965 0 0.0 0 0 0.99999982 0.0 757.01471 1149.7518 10.000008 1.0</transform>
@@ -891,8 +891,8 @@
 		<node type="NodeDummy" id="839540155" name="ObjectCloudLayer_Cumulus">
 			<transform>0.99999988 0 0 0.0 0 0.99999988 0 0.0 0 0 0.99999994 0.0 0 0 0 1.0</transform>
 			<node type="ObjectCloudLayer" id="257295730" name="ObjectCloudLayer_Cumulus">
-				<coverage_animation_offset>-63.7924271 -63.7924271 0 0</coverage_animation_offset>
-				<noise_animation_offset>-31.8962135 -31.8962135 -42.5730247 0</noise_animation_offset>
+				<coverage_animation_offset>-65.3972626 -65.3972626 0 0</coverage_animation_offset>
+				<noise_animation_offset>-32.6986313 -32.6986313 -43.6462021 0</noise_animation_offset>
 				<surface name="clouds_surface" physics_friction="1" physics_restitution="1" material="861bdcb639dd29ee8ce4d750d28d611c2dc07d8f"/>
 				<transform>1 0 0 0.0 0 1 0 0.0 0 0 1 0.0 0 0 599.00677 1.0</transform>
 			</node>

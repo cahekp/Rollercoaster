@@ -37,6 +37,9 @@ Unigine::Math::Mat4 catmullRomUniformFrenet(const Unigine::Math::Vec3 &p0, const
 // return transformation matrix of a point (position + rotation) based on binormal from previous iteration
 Unigine::Math::Mat4 catmullRomUniformRMF(const Unigine::Math::Vec3 &prev_binormal, const Unigine::Math::Vec3 &p0, const Unigine::Math::Vec3 &p1, const Unigine::Math::Vec3 &p2, const Unigine::Math::Vec3 &p3, float t);
 
+// return length of curve (more subdivisions -> more quality)
+float getLengthCatmullRomUniform(const Unigine::Math::Vec3 &p0, const Unigine::Math::Vec3 &p1, const Unigine::Math::Vec3 &p2, const Unigine::Math::Vec3 &p3, int subdivisions = 10);
+
 
 
 //////////////////////////////////////////////////////////////////
@@ -62,6 +65,9 @@ Unigine::Math::Mat4 catmullRomFrenet(const Unigine::Math::Vec3 &p0, const Unigin
 // return transformation matrix of a point (position + rotation) based on binormal from previous iteration
 Unigine::Math::Mat4 catmullRomRMF(const Unigine::Math::Vec3 &prev_binormal, const Unigine::Math::Vec3 &p0, const Unigine::Math::Vec3 &p1, const Unigine::Math::Vec3 &p2, const Unigine::Math::Vec3 &p3, float t, float alpha = 0.5f);
 
+// return length of curve (more subdivisions -> more quality)
+float getLengthCatmullRom(const Unigine::Math::Vec3 &p0, const Unigine::Math::Vec3 &p1, const Unigine::Math::Vec3 &p2, const Unigine::Math::Vec3 &p3, float alpha = 0.5f, int subdivisions = 10);
+
 
 
 //////////////////////////////////////////////////////////////////
@@ -84,12 +90,17 @@ Unigine::Math::Vec2 complex_mul(const Unigine::Math::Vec2 &c0, const Unigine::Ma
 // SQUAD - Spherical Quadrangle Interpolation
 //////////////////////////////////////////////////////////////////
 
-// spherical quadratic interpolation
+// spherical quadrangle interpolation
 // uses rotation from q1 to q2 (the same as Catmull-Rom), q0 and q3 - control points
 // (basically Catmull Rom splines for quaternions, gives C2-smooth rotation curve)
 Unigine::Math::quat squad(const Unigine::Math::quat &q0, const Unigine::Math::quat &q1, const Unigine::Math::quat &q2, const Unigine::Math::quat &q3, float t);
 
-Unigine::Math::quat squad2(const Unigine::Math::quat &q0, const Unigine::Math::quat &q1, const Unigine::Math::quat &q2, const Unigine::Math::quat &q3, float t);
+// spherical quadrangle interpolation (second version)
+// NOTE: I think there is a bug here somewhere because sometimes it behaves worse than the first version
+// based on: https://forum.unity.com/threads/player-following-a-path-spline-under-user-control.15623/
+Unigine::Math::quat squad_v2(const Unigine::Math::quat &q0, const Unigine::Math::quat &q1, const Unigine::Math::quat &q2, const Unigine::Math::quat &q3, float t);
+
+
 
 //////////////////////////////////////////////////////////////////
 // Easing Functions
