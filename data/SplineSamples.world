@@ -51,7 +51,7 @@
 		<shading_cavity_texture_name>core/textures/common/white.dds</shading_cavity_texture_name>
 		<albedo_convexity_texture_name>core/textures/common/white.dds</albedo_convexity_texture_name>
 		<shading_convexity_texture_name>core/textures/common/white.dds</shading_convexity_texture_name>
-		<environment_preset_0_intensity>1</environment_preset_0_intensity>
+		<environment_preset_0_intensity>0</environment_preset_0_intensity>
 		<environment_preset_0_scattering_base_lut_texture_name>core/textures/scattering_lut/preset_0/base.tga</environment_preset_0_scattering_base_lut_texture_name>
 		<environment_preset_0_scattering_mie_lut_texture_name>core/textures/scattering_lut/preset_0/mie.tga</environment_preset_0_scattering_mie_lut_texture_name>
 		<environment_preset_0_scattering_light_color_lut_texture_name>core/textures/scattering_lut/preset_0/light_color.tga</environment_preset_0_scattering_light_color_lut_texture_name>
@@ -166,7 +166,7 @@
 		<render_animation_stem>1</render_animation_stem>
 		<render_animation_wind>0 0 0</render_animation_wind>
 		<render_auxiliary>1</render_auxiliary>
-		<render_background_color>0 0 0 0</render_background_color>
+		<render_background_color>0.0666666701 0.0666666701 0.0666666701 1</render_background_color>
 		<render_bent_normal_color_clamping_intensity>1</render_bent_normal_color_clamping_intensity>
 		<render_bent_normal_color_clamping_velocity_threshold>0</render_bent_normal_color_clamping_velocity_threshold>
 		<render_bent_normal_denoise_gaussian_sigma>10</render_bent_normal_denoise_gaussian_sigma>

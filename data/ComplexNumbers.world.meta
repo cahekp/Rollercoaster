@@ -2,7 +2,7 @@
 <asset version="2.15.1.0">
 	<guid>39ecc0d557169c30eb8001cf5fde84e2bdbfbed9</guid>
 	<type>world</type>
-	<hash>4991befc</hash>
+	<hash>7aaa8e8e</hash>
 	<runtimes>
 		<runtime id="39ecc0d557169c30eb8001cf5fde84e2bdbfbed9" name="ComplexNumbers.world" link="0"/>
 	</runtimes>
@@ -28,7 +28,7 @@
 			<current_preset>0</current_preset>
 		</speed_presets>
 		<scene_camera>
-			<transform>0.99994528293609619 -0.01047071348875761 1.3160753269403358e-06 0 0.010464290156960487 0.9993363618850708 0.034893188625574112 0 -0.00036667176755145192 -0.034891258925199509 0.99939113855361938 0 0.064474068582057953 5.0302720069885254 5.7039551734924316 1</transform>
+			<transform>0.90183413028717041 -0.43208247423171997 1.9967555999755859e-06 0 0.2695692777633667 0.56264340877532959 0.78151440620422363 0 -0.33767977356910706 -0.70479583740234375 0.62388724088668823 0 -3.0907483100891113 -0.011599909514188766 3.7881667613983154 1</transform>
 			<fov_mode>0</fov_mode>
 			<fov>60</fov>
 			<focal_length>30</focal_length>
@@ -47,7 +47,7 @@
 			<mode>-1</mode>
 			<ligth_meter_max_intensity>500</ligth_meter_max_intensity>
 		</render_debug>
-		<selected_camera_id>-1</selected_camera_id>
+		<selected_camera_id>620479819</selected_camera_id>
 	</1>
 </viewport_list>
 </parameter>

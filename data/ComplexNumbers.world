@@ -51,7 +51,7 @@
 		<shading_cavity_texture_name>core/textures/common/white.dds</shading_cavity_texture_name>
 		<albedo_convexity_texture_name>core/textures/common/white.dds</albedo_convexity_texture_name>
 		<shading_convexity_texture_name>core/textures/common/white.dds</shading_convexity_texture_name>
-		<environment_preset_0_intensity>1</environment_preset_0_intensity>
+		<environment_preset_0_intensity>0</environment_preset_0_intensity>
 		<environment_preset_0_scattering_base_lut_texture_name>core/textures/scattering_lut/preset_0/base.tga</environment_preset_0_scattering_base_lut_texture_name>
 		<environment_preset_0_scattering_mie_lut_texture_name>core/textures/scattering_lut/preset_0/mie.tga</environment_preset_0_scattering_mie_lut_texture_name>
 		<environment_preset_0_scattering_light_color_lut_texture_name>core/textures/scattering_lut/preset_0/light_color.tga</environment_preset_0_scattering_light_color_lut_texture_name>
@@ -166,7 +166,7 @@
 		<render_animation_stem>1</render_animation_stem>
 		<render_animation_wind>0 0 0</render_animation_wind>
 		<render_auxiliary>1</render_auxiliary>
-		<render_background_color>0 0 0 0</render_background_color>
+		<render_background_color>0.129411772 0.129411772 0.129411772 1</render_background_color>
 		<render_bent_normal_color_clamping_intensity>1</render_bent_normal_color_clamping_intensity>
 		<render_bent_normal_color_clamping_velocity_threshold>0</render_bent_normal_color_clamping_velocity_threshold>
 		<render_bent_normal_denoise_gaussian_sigma>10</render_bent_normal_denoise_gaussian_sigma>
@@ -692,11 +692,11 @@
 			<is_main>1</is_main>
 			<is_listener>1</is_listener>
 			<controlled>1</controlled>
-			<transform>0.99999386 -0.0034993903 0 0.0 0.0034965717 0.99918836 0.040129427 0.0 -0.00014042853 -0.040129181 0.9991945 0.0 -0.19328286 4.5880384 5.5405226 1.0</transform>
+			<transform>0.99999386 -0.0034994318 0 0.0 0.0034966134 0.99918848 0.040128954 0.0 -0.00014042853 -0.040128704 0.9991945 0.0 -0.19328286 4.5880384 5.5405226 1.0</transform>
 		</node>
 		<node type="NodeDummy" id="2124402456" name="complex_numbers">
 			<variables>
-				<complex type="4">0.998792708 0</complex>
+				<complex type="4">-0.706786513 0.706786513</complex>
 			</variables>
 			<transform>0.99999988 0 0 0.0 0 0.99999988 0 0.0 0 0 0.99999994 0.0 -0.21310997 5.3441968 9.5367432e-07 1.0</transform>
 			<node type="WorldExpression" id="325055239" name="logic">
@@ -809,10 +809,10 @@
 			<node type="ObjectText" id="1347114846" name="text">
 				<font_name>core/gui/font.ttf</font_name>
 				<text>Complex numbers
-(0.71 + -0.71i)(0.71 + 0.71i) = 
-0.71*0.71 + 0.71*0.71i + -0.71*0.71i + -0.71*0.71i*i =
-0.71*0.71 + 0.00i + -0.71*0.71*(-1) =
-1.00 + 0.00i</text>
+(0.00 + 1.00i)(0.71 + 0.71i) = 
+0.00*0.71 + 0.00*0.71i + 1.00*0.71i + 1.00*0.71i*i =
+0.00*0.71 + 0.71i + 1.00*0.71*(-1) =
+-0.71 + 0.71i</text>
 				<font_size>100</font_size>
 				<font_outline>1</font_outline>
 				<text_wrap_width>0</text_wrap_width>
